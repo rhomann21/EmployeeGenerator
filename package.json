@@ -1,0 +1,26 @@
+{
+  "name": "employeegenerator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhomann21/EmployeeGenerator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rhomann21/EmployeeGenerator/issues"
+  },
+  "homepage": "https://github.com/rhomann21/EmployeeGenerator#readme",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
+}
