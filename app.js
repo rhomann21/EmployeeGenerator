@@ -240,10 +240,25 @@ function appMenu() {
       </head>
       <body>
       <div>`;
-    teamMembers.forEach(member => {
-      console.log(member);
-      let memberDiv = `<div>${member.getName()}</div>
-                        <div>${member.getId()}</div>`;
+
+      teamMembers.forEach(member => {
+        let variable;
+        if (member.getRole() === "Manager"){
+            variable = `Office Number: ${member.getOfficeNumber()}`
+        }
+        if (member.getRole()=== "Engineer"){
+            variable = `Github name: ${member.getGithub()}`
+        }
+        if (member.getRole()=== "Intern"){
+            variable = `School: ${member.getSchool()}`
+        };
+    
+           let memberDiv = 
+           `<div>${member.getName()}</div>
+            <div>${member.getRole()}</div>
+            <div>${member.getId()}</div>
+            <div>${member.getEmail()}</div>
+            <div> ${variable} </div>`
       console.log(memberDiv);
      headHtml += memberDiv;
     });
