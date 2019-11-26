@@ -224,7 +224,7 @@ function appMenu() {
     });
   }
   function buildTeam() {
-    let htmlString = '';
+    let htmlString = "";
     let headHtml = `
       <!DOCTYPE html>
       <html lang="en">
@@ -233,34 +233,38 @@ function appMenu() {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <title>My Team</title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <link rel="stylesheet" href="style.css">
-      <script src="https://kit.fontawesome.com/c502137733.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
       </head>
       <body>
-      <div>`;
+      <div class="container-fluid">
+      <div class="row bg-secondary text-white justify-content-center align-items-center header" style="height: 120px;">
+        <h1>Our Team Members</h1>
+      </div>
+      <div class="row justify-content-around">`;
+      
+    teamMembers.forEach(member => {
 
-      teamMembers.forEach(member => {
-        let variable;
-        if (member.getRole() === "Manager"){
-            variable = `Office Number: ${member.getOfficeNumber()}`
-        }
-        if (member.getRole()=== "Engineer"){
-            variable = `Github name: ${member.getGithub()}`
-        }
-        if (member.getRole()=== "Intern"){
-            variable = `School: ${member.getSchool()}`
-        };
-    
-           let memberDiv = 
-           `<div>${member.getName()}</div>
-            <div>${member.getRole()}</div>
-            <div>${member.getId()}</div>
-            <div>${member.getEmail()}</div>
-            <div> ${variable} </div>`
-      console.log(memberDiv);
-     headHtml += memberDiv;
+      let variable = "";
+      if (member.getRole() === "Manager") {
+        variable = `Office Number: ${member.getOfficeNumber()}`;
+      } else if (member.getRole() === "Engineer") {
+        variable = `GitHub Username: ${member.getGithub()}`;
+      } else if (member.getRole() === "Intern") {
+        variable = `School: ${member.getSchool()}`;
+      }
+
+      let memberDiv = `<div class="card mb-3" style="max-width: 18rem;">
+      <div class="card-header text-white bg-primary">
+      <div>${member.getName()}</div>
+                        <div>${member.getRole()}</div>
+                        </div>
+                        <div class="card-body bg-light">
+                        <div class="border bg-white">ID: ${member.getId()}</div>
+                        <div class="border bg-white">Email: ${member.getEmail()}</div>
+                        <div class="border bg-white">${variable}</div>
+                        </div></div>`;
+
+      headHtml += memberDiv;
     });
     const footerHtml = `
       </div>
